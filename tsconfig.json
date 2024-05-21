@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // Base Options recommended for all projects
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    // Enable strict type checking so you can catch bugs early
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    // We are not transpiling, so preserve our source code and do not emit files
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "lib": ["ESNext", "DOM"],
+
+    // hono jsx
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
+  },
+  // Include the necessary files for your project
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "types": ["@cloudflare/workers-types/2023/07-01"]
+}
