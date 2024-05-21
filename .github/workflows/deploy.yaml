@@ -1,0 +1,34 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/Iron'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Set wrangler version
+        id: wrangler
+        run: echo "version=$(jq -r .devDependencies.wrangler package.json)" >> "$GITHUB_OUTPUT"
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          wranglerVersion: ${{ steps.wrangler.outputs.version }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --minify src/index.ts
+        env:
+          SOME_ENV: ${{ secrets.SOME_ENV }}
