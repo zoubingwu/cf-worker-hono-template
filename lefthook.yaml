@@ -38,3 +38,4 @@ pre-commit:
     check:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: npx biome check --no-errors-on-unmatched --files-ignore-unknown=true --apply {staged_files}
+      stage_fixed: true
