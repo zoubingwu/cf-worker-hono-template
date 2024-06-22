@@ -9,14 +9,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "hono": "4.4.6"
+    "hono": "4.4.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
-    "@cloudflare/workers-types": "4.20240614.0",
-    "lefthook": "1.6.16",
-    "typescript": "5.4.5",
-    "wrangler": "3.60.3"
+    "@biomejs/biome": "1.8.2",
+    "@cloudflare/workers-types": "4.20240620.0",
+    "lefthook": "1.6.18",
+    "typescript": "5.5.2",
+    "wrangler": "3.61.0"
   },
   "packageManager": "pnpm@9.3.0"
 }
